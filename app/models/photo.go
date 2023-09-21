@@ -10,7 +10,7 @@ import (
 )
 
 //go:generate spice generate:migration
-type User struct {
+type Photo struct {
 	model.BaseModel
 
 	ID    int    `json:"id"    db:"id,primary,autoincrement"`
@@ -21,10 +21,10 @@ type User struct {
 	RefreshToken string    `json:"-" db:"refresh_token"`
 }
 
-func UserQuery(ctx context.Context) *builder.Builder[*User] {
-	return builder.From[*User]().WithContext(ctx)
+func PhotoQuery(ctx context.Context) *builder.Builder[*Photo] {
+	return builder.From[*Photo]().WithContext(ctx)
 }
 
-func (u *User) Save(tx *sqlx.Tx) error {
+func (u *Photo) Save(tx *sqlx.Tx) error {
 	return model.Save(tx, u)
 }

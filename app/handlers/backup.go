@@ -6,12 +6,12 @@ import (
 	"github.com/abibby/salusa/request"
 )
 
-type backupRequest struct {
+type BackupRequest struct {
 }
-type backupResponse struct {
+type BackupResponse struct {
 }
 
-var Backup = request.Handler(func(r *backupRequest) (*backupResponse, error) {
+var Backup = request.Handler(func(r *BackupRequest) (*BackupResponse, error) {
 	kernel.Dispatch(&events.BackupEvent{})
-	return &backupResponse{}, nil
+	return &BackupResponse{}, nil
 })

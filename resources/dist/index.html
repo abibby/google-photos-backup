@@ -3,10 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Google Photos Backup</title>
   </head>
   <body>
-    <h1>Salusa</h1>
-    <p>This is the default page</p>
+    <h1>Google Photos Backup</h1>
+
+    <a
+      href="https://accounts.google.com/o/oauth2/v2/auth?client_id={{ .client_id }}&redirect_uri=http://localhost:6900/gauth&response_type=code&scope=https://www.googleapis.com/auth/photoslibrary.readonly%20https://www.googleapis.com/auth/userinfo.email&access_type=offline&prompt=consent"
+    >
+      login
+    </a>
   </body>
 </html>

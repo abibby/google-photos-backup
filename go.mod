@@ -3,7 +3,8 @@ module github.com/abibby/google-photos-backup
 go 1.21.0
 
 require (
-	github.com/abibby/salusa v0.4.0
+	github.com/abibby/salusa v0.4.1
+	github.com/davecgh/go-spew v1.1.1
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/joho/godotenv v1.5.1
 	modernc.org/sqlite v1.25.0
@@ -11,7 +12,6 @@ require (
 
 require (
 	github.com/barkimedes/go-deepcopy v0.0.0-20220514131651-17c30cfc62df // indirect
-	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/google/uuid v1.3.1 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
