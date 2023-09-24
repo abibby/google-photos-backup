@@ -2,6 +2,8 @@ package gphotos
 
 import (
 	"encoding/json"
+	"fmt"
+	"net/url"
 	"time"
 )
 
@@ -30,13 +32,28 @@ type MediaItem struct {
 	Filename      string         `json:"filename"`
 }
 
+type ListMediaItemsRequest struct {
+	PageToken string
+	PageSize  int
+}
+
 type ListMediaItemsResponse struct {
 	MediaItems    []*MediaItem `json:"mediaItems"`
 	NextPageToken string       `json:"nextPageToken"`
 }
 
-func (c *Client) ListMediaItems() (*ListMediaItemsResponse, error) {
-	resp, err := c.Get("https://photoslibrary.googleapis.com/v1/mediaItems")
+func (c *Client) ListMediaItems(req *ListMediaItemsRequest) (*ListMediaItemsResponse, error) {
+	if req == nil {
+		req = &ListMediaItemsRequest{}
+	}
+	query := url.Values{}
+	if req.PageToken != "" {
+		query.Add("pageToken", req.PageToken)
+	}
+	if req.PageSize != 0 {
+		query.Add("pageSize", fmt.Sprint(req.PageSize))
+	}
+	resp, err := c.Get("https://photoslibrary.googleapis.com/v1/mediaItems?" + query.Encode())
 	if err != nil {
 		return nil, err
 	}

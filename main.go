@@ -14,6 +14,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// err = jobs.BackupJob(&events.BackupEvent{})
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 	err = app.Kernel.Run(ctx)
 	if err != nil {
 		log.Fatal(err)

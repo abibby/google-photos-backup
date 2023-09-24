@@ -3,7 +3,7 @@ module github.com/abibby/google-photos-backup
 go 1.21.0
 
 require (
-	github.com/abibby/salusa v0.4.1
+	github.com/abibby/salusa v0.4.2
 	github.com/davecgh/go-spew v1.1.1
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/joho/godotenv v1.5.1

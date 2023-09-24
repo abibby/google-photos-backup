@@ -19,6 +19,8 @@ type User struct {
 	AccessToken  string    `json:"-" db:"access_token"`
 	ExpiresAt    time.Time `json:"-" db:"expires_in"`
 	RefreshToken string    `json:"-" db:"refresh_token"`
+
+	FinishedInitialFetch bool `json:"finished_initial_fetch" db:"finished_initial_fetch"`
 }
 
 func UserQuery(ctx context.Context) *builder.Builder[*User] {
